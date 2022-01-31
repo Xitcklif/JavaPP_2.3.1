@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:style="http://www.w3.org/1999/xhtml">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UserList</title>
+</head>
+<body>
+    <div>
+        <table th:border="1">
+            <tr>
+                <th style="font-size:18px">Id</th>
+                <th style="font-size:18px">First name</th>
+                <th style="font-size:18px">Last name</th>
+                <th style="font-size:18px">Email</th>
+                <th style="font-size:18px">Debt</th>
+                <th style="font-size:18px">Show/Update</th>
+                <th style="font-size:18px">Delete</th>
+            </tr>
+            <tr th:each="user : ${users}">
+                <td style="font-size:18px" th:utext="${user.getId()}"></td>
+                <td style="font-size:18px" th:utext="${user.getFirstName()}"></td>
+                <td style="font-size:18px" th:utext="${user.getLastName()}"></td>
+                <td style="font-size:18px" th:utext="${user.getEmail()}"></td>
+                <td style="font-size:18px" th:utext="${user.getDebt()}"></td>
+                <td style="font-size:18px"><a th:href="@{/users/{id}(id=${user.getId()})}"><button style="font-size:18px;background:white">Show/Update</button></a></td>
+                <td style="font-size:18px">
+                    <form th:method="POST" th:action="@{/users/remove/{id}(id=${user.getId()})}">
+                        <input style="font-size:18px; background:white" type="submit" value="Delete user"/>
+                    </form>
+                </td>
+            </tr>
+        </table>
+        <p/>
+        <a th:href="@{/users/create}"><button style="font-size:18px">Create new user</button></a>
+    </div>
+</body>
+</html>

@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Create new user</h1>
-    <form th:method="POST" th:action="@{/users}" th:object="${user}">
+    <form th:method="POST" th:action="@{/}" th:object="${user}">
             <lable style="font-size:18px" for="firstname">First name</lable>
             <input style="font-size:18px" type="text" th:field="*{firstName}" id="firstname"/>
         <p/>
@@ -20,9 +20,9 @@
             <lable style="font-size:18px" for="debt">Debt</lable>
             <input style="font-size:18px" type="text" th:field="*{debt}" id="debt"/>
         <p/>
-        <a th:href="@{/users}"><input style="font-size:18px" type="submit" value="Create user"/></a>
+        <a th:href="@{/}"><input style="font-size:18px" type="submit" value="Create user"/></a>
     </form>
 
-    <a th:href="@{/users}"><button style="font-size:18px">Return to users list</button></a>
+    <a th:href="@{/}"><button style="font-size:18px">Return to users list</button></a>
 </body>
 </html>

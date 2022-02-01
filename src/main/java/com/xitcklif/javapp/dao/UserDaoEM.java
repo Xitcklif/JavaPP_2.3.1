@@ -3,6 +3,7 @@ package com.xitcklif.javapp.dao;
 import com.xitcklif.javapp.model.User;
 
 import org.hibernate.HibernateException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;

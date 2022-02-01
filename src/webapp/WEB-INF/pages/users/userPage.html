@@ -6,7 +6,7 @@
     <title>User</title>
 </head>
 <body>
-    <form th:method="POST" th:action="@{/users/update/{id}(id=${user.getId()})}" th:object="${user}">
+    <form th:method="POST" th:action="@{/user/update/{id}(id=${user.getId()})}" th:object="${user}">
         <lable style="font-size:18px" for="newfirstname">First name</lable>
         <input style="font-size:18px" th:name="newfirstname" type="text" th:field="*{firstName}" id="newfirstname"/>
         <p/>
@@ -27,6 +27,10 @@
     </form>
 
     <p/>
-    <a th:href="@{/users}"><button style="font-size:18px">Return to users list</button></a>
+    <a th:href="@{/}"><button style="font-size:18px">Return to users list</button></a>
+    <p/>
+    <form th:method="POST" th:action="@{/user/remove/{id}(id=${user.getId()})}">
+        <input style="font-size:18px;" type="submit" value="Delete user"/>
+    </form>
 </body>
 </html>

@@ -16,7 +16,6 @@
                 <th style="font-size:18px">Email</th>
                 <th style="font-size:18px">Debt</th>
                 <th style="font-size:18px">Show/Update</th>
-                <th style="font-size:18px">Delete</th>
             </tr>
             <tr th:each="user : ${users}">
                 <td style="font-size:18px" th:utext="${user.getId()}"></td>
@@ -24,16 +23,11 @@
                 <td style="font-size:18px" th:utext="${user.getLastName()}"></td>
                 <td style="font-size:18px" th:utext="${user.getEmail()}"></td>
                 <td style="font-size:18px" th:utext="${user.getDebt()}"></td>
-                <td style="font-size:18px"><a th:href="@{/users/{id}(id=${user.getId()})}"><button style="font-size:18px;background:white">Show/Update</button></a></td>
-                <td style="font-size:18px">
-                    <form th:method="POST" th:action="@{/users/remove/{id}(id=${user.getId()})}">
-                        <input style="font-size:18px; background:white" type="submit" value="Delete user"/>
-                    </form>
-                </td>
+                <td style="font-size:18px"><a th:href="@{/user/{id}(id=${user.getId()})}"><button style="font-size:18px;background:white">Show/Update</button></a></td>
             </tr>
         </table>
         <p/>
-        <a th:href="@{/users/create}"><button style="font-size:18px">Create new user</button></a>
+        <a th:href="@{/create}"><button style="font-size:18px">Create new user</button></a>
     </div>
 </body>
 </html>

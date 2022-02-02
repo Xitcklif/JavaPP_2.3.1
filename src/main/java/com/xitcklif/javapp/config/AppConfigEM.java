@@ -24,8 +24,11 @@ import java.util.Properties;
 @ComponentScan(value = "com.xitcklif.javapp")
 public class AppConfigEM {
 
-    @Autowired
-    private Environment env;
+    private final Environment env;
+
+    public AppConfigEM(Environment env) {
+        this.env = env;
+    }
 
     @Bean
     public DataSource getDataSource() {

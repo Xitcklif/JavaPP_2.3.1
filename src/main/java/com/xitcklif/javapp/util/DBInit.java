@@ -1,8 +1,7 @@
-package com.xitcklif.javapp;
+package com.xitcklif.javapp.util;
 
 import com.xitcklif.javapp.model.User;
 import com.xitcklif.javapp.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -10,8 +9,11 @@ import javax.annotation.PostConstruct;
 @Component
 public class DBInit {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+
+    public DBInit(UserService userService) {
+        this.userService = userService;
+    }
 
     @PostConstruct
     public void createNewUsersOnStart() {

@@ -31,7 +31,7 @@ public class UserDaoEM implements UserDao {
     }
 
     @Override
-    public void update(long id, User user) throws HibernateException {
+    public void update(User user) throws HibernateException {
         entityManager.merge(user);
     }
 

@@ -24,11 +24,10 @@ public class UserController {
     }
 
     @PostMapping("/update/{id}")
-    public String updateUser(@PathVariable("id") long id,
-                             @ModelAttribute("user") User user) {
+    public String updateUser(@ModelAttribute("user") User user) {
 
-        userService.update(id, user);
-        return "redirect:/user/" + id;
+        userService.update(user);
+        return "redirect:/user/" + user.getId();
     }
 
     @PostMapping("/remove/{id}")
